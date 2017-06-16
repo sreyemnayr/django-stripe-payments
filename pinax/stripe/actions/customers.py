@@ -52,11 +52,10 @@ def create(user, card=None, plan=settings.PINAX_STRIPE_DEFAULT_PLAN, charge_imme
         trial_end=trial_end
     )
     try:
-        with transaction.atomic():
-            cus = models.Customer.objects.create(
-                user=user,
-                stripe_id=stripe_customer["id"]
-            )
+        cus = models.Customer.objects.create(
+            user=user,
+            stripe_id=stripe_customer["id"]
+        )
     except IntegrityError:
         # There is already a Customer object for this user
         stripe.Customer.retrieve(stripe_customer["id"]).delete()
