@@ -1,6 +1,7 @@
 import stripe
 
 from .. import models
+from .. import utils
 import datetime
 from . externalaccounts import sync_bank_account_from_stripe_data
 
@@ -145,7 +146,7 @@ def sync_account_from_stripe_data(data, user=None):
 
     # verification status, key to progressing account setup
     obj.verification_disabled_reason = data['verification']['disabled_reason']
-    obj.verification_due_by = data['verification']['due_by']
+    obj.verification_due_by = utils.convert_tstamp(data['verification']['due_by']) if data['verification']['due_by'] else None
     obj.verification_fields_needed = data['verification']['fields_needed']
 
     obj.save()
