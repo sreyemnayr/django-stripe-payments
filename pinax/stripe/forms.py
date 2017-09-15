@@ -115,7 +115,7 @@ STATE_CHOICES_BY_COUNTRY = {
         ('WA', _('Washington')),
         ('WV', _('West Virginia')),
         ('WI', _('Wisconsin')),
-        ('WY', _('Wyoming'))`
+        ('WY', _('Wyoming'))
     ]
 }
 
