@@ -280,6 +280,7 @@ class InitialManagedAccountForm(DynamicManagedAccountForm):
     address_city = forms.CharField(max_length=100)
     address_state = forms.CharField(max_length=100)
     address_postal_code = forms.CharField(max_length=100)
+    address_country = forms.CharField(max_length=100)
 
     # for external_account
     routing_number = forms.CharField(max_length=100)
